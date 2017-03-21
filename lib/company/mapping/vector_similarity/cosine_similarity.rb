@@ -42,6 +42,5 @@ module Company
         return common_tokens.intersection(Set.new doc2_tokens)
       end
     end
-
   end
 end

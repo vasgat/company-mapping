@@ -1,9 +1,6 @@
 module Company
-
   module Mapping
-
     class Corpus
-
       def initialize
         @corpus = Set.new
       end
