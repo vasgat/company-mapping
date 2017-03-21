@@ -3,7 +3,7 @@ module Mapping
   class Corpus
 
     def initialize
-      @corpus = Set.new
+      @corpus = ::Set.new
     end
 
     def push(document)
