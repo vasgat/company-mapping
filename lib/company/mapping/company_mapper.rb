@@ -13,7 +13,13 @@ module Company
 
       #maps a given company to a company exists to the given corpus. If the maximum name similarity found exceeds the given
       # threshold then the company's id is returned as a match
-      def map(company, threshold)
+      def map(company_doc, threshold)
+        if (company_doc.is_a? String)
+          company = new TextDocument.new
+          company.contents = company_doc
+          company.id = "new_comp"
+        end
+
         @tfidf.calculate_tfidf_weights_of_new_document(company)
 
         maxSim = 0.0
