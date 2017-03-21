@@ -1,4 +1,4 @@
-require 'spec_helper'
+require_relative 'spec_helper'
 
 RSpec.describe Company::Mapping::CompanyMapper do
   include_context "mapper"
@@ -13,7 +13,7 @@ RSpec.describe Company::Mapping::CompanyMapper do
     @mapper.map(company_doc(company_name), threshold)
   end
 
-  let(:brf_id) { "57493" }
+  let(:brf_id) { 57493 }
 
   context "threshold 0.5" do
     let(:threshold) { 0.5 }
@@ -36,6 +36,10 @@ RSpec.describe Company::Mapping::CompanyMapper do
 
     it "does not map 'brff'" do
       expect(map"brff").to eq nil
+    end
+
+    it "handles company strings" do
+      expect(@mapper.map("BRF", threshold)).to eq brf_id
     end
   end
 
