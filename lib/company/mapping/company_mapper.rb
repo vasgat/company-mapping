@@ -27,7 +27,7 @@ module Company
         end
 
         return unless maxSim > threshold
-        mapped_company.to_s.sub(/\_.*/, "")
+        mapped_company.to_s.sub(/\_.*/, "").to_i
       end
     end
   end
