@@ -1,22 +1,25 @@
-module Mapping
+module Company
 
-  class Corpus
+  module Mapping
 
-    def initialize
-      @corpus = Set.new
-    end
+    class Corpus
 
-    def push(document)
-      @corpus.add(document)
-    end
+      def initialize
+        @corpus = Set.new
+      end
 
-    def size
-      return @corpus.size
-    end
+      def push(document)
+        @corpus.add(document)
+      end
 
-    def each
-      @corpus.each do |doc|
-        yield(doc)
+      def size
+        return @corpus.size
+      end
+
+      def each
+        @corpus.each do |doc|
+          yield(doc)
+        end
       end
     end
   end
