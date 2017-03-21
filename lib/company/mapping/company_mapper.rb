@@ -13,10 +13,11 @@ module Company
 
       #maps a given company to a company exists to the given corpus. If the maximum name similarity found exceeds the given
       # threshold then the company's id is returned as a match
-      def map(company_doc, threshold)
-        if (company_doc.is_a? String)
-          company = new TextDocument.new
-          company.contents = company_doc
+      def map(company, threshold)
+        if (company.is_a? String)
+          content = company
+          company = TextDocument.new
+          company.contents = content
           company.id = "new_comp"
         end
 
