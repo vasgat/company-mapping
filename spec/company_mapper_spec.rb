@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-RSpec.describe Mapping::CompanyMapper do
+RSpec.describe Company::Mapping::CompanyMapper do
   include_context "mapper"
 
   def company_doc name
-    new_company = TextDocument.new
+    new_company = Company::Mapping::TextDocument.new
     new_company.contents = name
     new_company
   end
