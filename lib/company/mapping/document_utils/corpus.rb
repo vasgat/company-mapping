@@ -1,9 +1,11 @@
+module Company
+
 module Mapping
 
   class Corpus
 
     def initialize
-      @corpus = ::Set.new
+        @corpus = Set.new
     end
 
     def push(document)
@@ -17,6 +19,7 @@ module Mapping
     def each
       @corpus.each do |doc|
         yield(doc)
+        end
       end
     end
   end
