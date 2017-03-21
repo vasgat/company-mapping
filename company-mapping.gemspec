@@ -9,19 +9,10 @@ Gem::Specification.new do |spec|
   spec.authors       = ["vasgat"]
   spec.email         = ["vasgat@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{Maps new companies with those in a given corpus.}
+  spec.description   = %q{Given a Corpus of WikiRate Company Names and a new (incoming) Company Name, CompanyMapper class, finds the closest match if exists based on the calculated tf-idf similarity and a defined threshold.}
+  spec.homepage      = %q{https://github.com/vasgat/company-mapping}
   spec.license       = "MIT"
-
-  # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
-  # to allow pushing to a single host or delete this section to allow pushing to any host.
-  if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com'"
-  else
-    raise "RubyGems 2.0 or newer is required to protect against " \
-      "public gem pushes."
-  end
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
