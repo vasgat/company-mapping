@@ -13,38 +13,33 @@ module Company
       end
 
       def tokenize(text)
-        _text = tranform(text)
-        _tokens = Array.new
-        _index = 0;
-        while (_index<_text.length)
-          _char = String(_text[_index])
-          if (_char.match(/\s/))
-            _index = _index+1
-          elsif (_char.match(/\w/))
-            _buf = StringIO.new("")
-            while ((_index < _text.length) && (_text[_index].match(/\w/)))
-              _buf << _text[_index]
-              _index += 1
+        text = tranform(text)
+        tokens = Array.new
+        index = 0
+        while (index < text.length)
+          char = text[index]
+          case char
+          when /\s/
+            index = index + 1
+          when /\w/ #/(?<word>\w+)/
+            buf = ""
+            while ((index < text.length) && (text[index].match(/\w/)))
+              buf << text[index]
+              index += 1
             end
-            _tokens.push(_buf.string)
+            tokens.push buf
+            index += 1
           else
-            if (!@doIgnorePunctuation)
-              _buf = StringIO.new("")
-              _buf << _char
-              _tokens.push(_buf.string)
-            end
-            _index += 1
+            tokens.push(char) unless @doIgnorePunctuation
+            index += 1
           end
         end
-        return _tokens
+        tokens
       end
 
       private
       def tranform(text)
-        if (@doIgnoreCase)
-          return text.to_s.downcase
-        end
-        return text.to_s
+        @doIgnoreCase ? text.to_s.downcase : text.to_s
       end
     end
   end

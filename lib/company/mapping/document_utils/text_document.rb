@@ -1,6 +1,6 @@
 module Company
   module Mapping
-
+    # A simple text document
     class TextDocument
       attr_accessor :id, :contents, :tokenizer
 
@@ -22,10 +22,6 @@ module Company
         o.class == self.class && o.state == self.state
       end
 
-      def info
-        return "A simple text document"
-      end
-
       def to_s
         "TextDocument:{#{id},#{contents}}"
       end
@@ -35,6 +31,5 @@ module Company
         [@id]
       end
     end
-
   end
 end

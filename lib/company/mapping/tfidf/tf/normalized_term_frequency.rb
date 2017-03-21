@@ -6,22 +6,11 @@ module Company
 # f(t,d) is zero.
 
     class NormalizedTermFrequency < TermFrequency
-
       def calculate(text)
-        _rawTF = rawFrequency(text)
-        _logTF = Hash.new
-
-        _rawTF.each do |key, value|
-          _logTF[key] = 1.0 + Math.log(value)
+        rawFrequency(text).each_with_object({}) do |(key, value), logTF|
+          logTF[key] = 1.0 + Math.log(value)
         end
-
-        return _logTF
-      end
-
-      def info
-        return "Logarithmically scaled term frequency: tf(t,d) = 1 + log(f(t,d)), or zero if ft,d is zero";
       end
     end
-
   end
 end

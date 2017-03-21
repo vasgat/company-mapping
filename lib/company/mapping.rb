@@ -5,6 +5,7 @@ module Company
   end
 end
 
+require 'csv'
 require 'set'
 require_relative 'mapping/document_utils/basic_tokenizer'
 require_relative 'mapping/document_utils/corpus'

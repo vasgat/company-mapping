@@ -1,7 +1,3 @@
-require 'csv'
-require_relative 'corpus'
-require_relative 'text_document'
-
 module Company
   module Mapping
     class CompanyCorpus < Corpus

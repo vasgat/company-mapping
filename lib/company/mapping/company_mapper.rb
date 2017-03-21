@@ -16,27 +16,19 @@ module Company
       def map(company, threshold)
         @tfidf.calculate_tfidf_weights_of_new_document(company)
 
-        _maxSim = 0.0
-        _mapped_company = ""
+        maxSim = 0.0
+        mapped_company = ""
         @corpus.each do |d|
-          _similarity = @tfidf.similarity(d.id, company.id)
-
-          if (_maxSim < _similarity)
-            _maxSim = _similarity
-            _mapped_company = d.id
-            if (_maxSim == 1)
-              break
-            end
-          end
+          similarity = @tfidf.similarity(d.id, company.id)
+          next unless maxSim < similarity
+          maxSim = similarity
+          mapped_company = d.id
+          break if maxSim == 1
         end
 
-        if (_maxSim>threshold)
-          return _mapped_company.to_s.sub(/\_.*/, "")
-        else
-          return nil
-        end
+        return unless maxSim > threshold
+        mapped_company.to_s.sub(/\_.*/, "")
       end
     end
-
   end
 end

@@ -1,23 +1,7 @@
 module Company
   module Mapping
-    class Corpus
-      def initialize
-        @corpus = Set.new
-      end
-
-      def push(document)
-        @corpus.add(document)
-      end
-
-      def size
-        return @corpus.size
-      end
-
-      def each
-        @corpus.each do |doc|
-          yield(doc)
-        end
-      end
+    class Corpus < Set
+      alias_method :push, :add
     end
   end
 end

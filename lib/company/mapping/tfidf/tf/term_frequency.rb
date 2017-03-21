@@ -1,6 +1,6 @@
 module Company
   module Mapping
-
+    # Raw term frequency (number of times a token appears in a given string - document)
     class TermFrequency
 
       def initialize(tokenizer)
@@ -9,29 +9,16 @@ module Company
 
       #Calculates the raw term frequency given the contents of the document.
       def calculate(text)
-        return rawFrequency(text)
-      end
-
-      def info
-        return "Raw term frequency (number of times a token appears in a given string - document)"
+        rawFrequency(text)
       end
 
       protected
       def rawFrequency(contents)
-        _tokens = @tokenizer.tokenize(contents)
-        _tf = Hash.new
-
-        _tokens.each {
-            |_token|
-          if (!_tf.has_key?(_token))
-            _tf[_token] = 1
-          else
-            _tf[_token] = _tf[_token] + 1
-          end
-        }
-        return _tf
+        @tokenizer.tokenize(contents).each_with_object({}) do |token, tf|
+          tf[token] ||= 0
+          tf[token] += 1
+        end
       end
     end
-
   end
 end
