@@ -1,8 +1,6 @@
 # Company::Mapping
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/company/mapping`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Given a Corpus of Company Names and a new (incoming) Company Name, the CompanyMapper class, finds the closest match if exists based on the calculated tf-idf similarity and a defined threshold.
 
 ## Installation
 
@@ -22,7 +20,10 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions hereF
+```ruby
+mapper = CompanyMapper.new(companiesCorpus)
+puts mapper.map(new_company, 0.5)
+```
 
 ## Development
 
@@ -32,7 +33,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/company-mapping. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/vasgat/company-mapping. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License
