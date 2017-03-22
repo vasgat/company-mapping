@@ -21,7 +21,7 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
-mapper = CompanyMapper.new(companiesCorpus)
+mapper = Company::Mapping::CompanyMapper.new(companiesCorpus)
 puts mapper.map(new_company, 0.5)
 ```
 
